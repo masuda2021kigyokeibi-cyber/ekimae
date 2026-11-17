@@ -867,6 +867,14 @@
     <h2><span class="no">図</span>現場図面</h2>
     <p class="section-lead">A3判の現場図面（施工箇所①〜⑧）と、各箇所に対応する規制図面です。<strong>細部は、このページ全体を2本指のピンチで拡大して</strong>ご覧ください（文字も図面も一緒に大きくなります）。図面は高解像度の画像で載せているので、拡大しても細部まで読めます。箇所番号・延長・面積などを確認してください。</p>
 
+    <div class="card" style="margin-bottom:16px">
+      <figure class="zumen-fig">
+        <h3>現場説明 ― 上空から見た配置イメージ</h3>
+        <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i25.b64" alt="現場説明 ― 益田澄川線を上空から見た配置イメージ。交差点を挟んで両側に信号機搭載の軽トラック2台、コーン、矢印板、警備員を配置し、規制をかけている全体像" width="1014" height="719" loading="lazy">
+        <figcaption style="margin:10px 2px 0;font-size:.95rem;line-height:1.65;color:var(--muted)">上空から見た配置イメージです。益田澄川線で、交差点を挟んで両側に規制をかけている様子を示しています。信号機搭載の軽トラック2台を両端に置き、コーン・矢印板・警備員を配置した全体像を確認してください。細部はページ全体をピンチで拡大してご覧ください。</figcaption>
+      </figure>
+    </div>
+
     <div class="card">
       <figure class="zumen-fig">
         <h3>現場図面（施工箇所①〜③）</h3>
@@ -1275,7 +1283,7 @@
           + '</div></div>';
         if(e.s>0){
           h += '<div class="today-thumb">'
-            + '<img class="zumen-img" src="assets/sec'+e.s+'.jpg" alt="'+secText(e)+'の個別図面" width="900" height="'+e.th+'" loading="lazy">'
+            + '<img class="zumen-img" data-b64="assets/sec'+e.s+'.b64" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="'+secText(e)+'の個別図面" width="900" height="'+e.th+'" loading="lazy">'
             + '<p class="today-note">'+secText(e)+'の図面です。細部はページ全体をピンチで拡大してご覧ください。全体図と、この箇所の規制図面・規制方法は下の「現場図面」の'+secText(e)+'をご覧ください。</p>'
             + '</div>';
         }
@@ -1321,11 +1329,15 @@
 
 </script>
 <script>
-document.querySelectorAll('img[data-b64]').forEach(function(img){
+function hydrateB64(img){
+  if(img.dataset.done) return; img.dataset.done='1';
   fetch(img.getAttribute('data-b64')).then(function(r){return r.text();}).then(function(t){
     img.src='data:image/jpeg;base64,'+t.replace(/\s+/g,'');
   }).catch(function(){});
-});
+}
+function scanB64(root){ (root||document).querySelectorAll('img[data-b64]').forEach(hydrateB64); }
+scanB64(document);
+new MutationObserver(function(){ scanB64(document); }).observe(document.documentElement,{childList:true,subtree:true});
 </script>
 </body>
 </html>
