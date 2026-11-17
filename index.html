@@ -1,0 +1,1331 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>益田澄川線外（駅前工区）県単舗装整備工事</title>
+<style>
+  :root{
+    color-scheme: light dark;
+    --navy:#132e4d;
+    --navy-2:#1d4470;
+    --navy-ink:#0e2238;
+    --bg:#eef1f4;
+    --card:#ffffff;
+    --card-2:#f6f8fa;
+    --text:#17212b;
+    --muted:#4a5a6a;
+    --line:#c9d3dd;
+    --accent:#c47a12;
+    --accent-bg:#fdf3e0;
+    --accent-line:#e3a93c;
+    --alert-bg:#fff7e6;
+    --alert-line:#d99a16;
+    --alert-text:#5c3d05;
+    --chip-bg:#e8eef4;
+    --num:#132e4d;
+    --weekend:#8a97a3;
+    --shadow:0 1px 3px rgba(19,46,77,.10), 0 4px 14px rgba(19,46,77,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#10161d;
+      --card:#1a232e;
+      --card-2:#212d3a;
+      --text:#eef2f6;
+      --muted:#b6c2cf;
+      --line:#364656;
+      --accent-bg:#2e2410;
+      --alert-bg:#2b2110;
+      --alert-text:#f3d489;
+      --chip-bg:#263646;
+      --num:#a9c8ec;
+      --weekend:#77879a;
+      --shadow:0 1px 3px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{font-size:20px; -webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic",YuGothic,"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.65;
+    font-size:1rem;
+  }
+  a{color:inherit}
+  .wrap{max-width:900px;margin:0 auto;padding:0 16px 48px}
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--navy);
+    color:#fff;
+    border-bottom:5px solid var(--accent);
+  }
+  .header-inner{max-width:900px;margin:0 auto;padding:22px 16px 20px}
+  .header-top{
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    margin-bottom:10px;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:.82rem;font-weight:700;letter-spacing:.02em;
+    padding:4px 12px;border-radius:999px;
+  }
+  .badge-night{background:#f2b63c;color:#231a00}
+  .badge-share{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
+  h1{
+    margin:0;
+    font-size:1.55rem;
+    line-height:1.35;
+    font-weight:800;
+    letter-spacing:.01em;
+  }
+  .header-sub{margin:8px 0 0;font-size:.95rem;color:#cfdeee;line-height:1.6}
+  .header-sub strong{color:#fff}
+
+  /* ---------- Quick nav ---------- */
+  nav.quick{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+  }
+  .quick-inner{max-width:900px;margin:0 auto;padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap}
+  .quick a{
+    flex:1 1 auto;text-align:center;
+    text-decoration:none;font-weight:700;font-size:.92rem;
+    padding:10px 8px;border-radius:8px;
+    background:var(--chip-bg);color:var(--text);
+    white-space:nowrap;
+  }
+  .quick a.warn-link{background:var(--accent-bg);border:1.5px solid var(--accent-line)}
+  .quick a.decision-link{background:var(--navy);color:#fff}
+  .quick a.today-link{background:var(--accent);color:#fff}
+
+  main{padding-top:20px}
+  section{margin-bottom:28px;scroll-margin-top:16px}
+  h2{
+    font-size:1.3rem;line-height:1.4;margin:0 0 6px;
+    display:flex;align-items:center;gap:10px;
+  }
+  h2 .no{
+    flex:0 0 auto;width:36px;height:36px;border-radius:8px;
+    background:var(--navy);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:1.05rem;font-weight:800;
+  }
+  @media (prefers-color-scheme: dark){ h2 .no{background:var(--navy-2)} }
+  .section-lead{margin:0 0 14px;color:var(--muted);font-size:.95rem}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    padding:18px;
+  }
+
+  /* ---------- Summary stats ---------- */
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;
+  }
+  .stat{
+    background:var(--navy);color:#fff;border-radius:12px;
+    padding:14px 10px 12px;text-align:center;
+  }
+  .stat .big{font-size:1.9rem;font-weight:800;line-height:1.15;display:block}
+  .stat .big small{font-size:1rem;font-weight:700}
+  .stat .label{font-size:.82rem;color:#cfdeee;font-weight:700}
+  @media (max-width:520px){
+    .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
+    .stat .big{font-size:1.45rem}
+    .stat .label{font-size:.72rem}
+  }
+
+  /* ---------- Definition table ---------- */
+  .spec{width:100%;border-collapse:collapse}
+  .spec th,.spec td{
+    text-align:left;vertical-align:top;
+    padding:12px 10px;border-bottom:1px solid var(--line);
+    font-size:1rem;
+  }
+  .spec tr:last-child th,.spec tr:last-child td{border-bottom:none}
+  .spec th{
+    width:32%;min-width:118px;
+    color:var(--muted);font-weight:700;font-size:.92rem;
+    background:var(--card-2);
+  }
+  .spec td{font-weight:600}
+  .spec td .note{display:block;font-weight:500;color:var(--muted);font-size:.88rem;margin-top:2px}
+  @media (max-width:520px){
+    .spec th,.spec td{display:block;width:100%}
+    .spec th{padding-bottom:2px;background:none}
+    .spec td{padding-top:2px;padding-bottom:14px}
+  }
+
+  /* ---------- Day cards ---------- */
+  .month-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;
+    margin:22px 0 10px;
+  }
+  .month-head:first-of-type{margin-top:4px}
+  .month-head h3{margin:0;font-size:1.2rem}
+  .month-head .subtotal{
+    font-weight:800;color:var(--navy);
+    background:var(--chip-bg);border-radius:999px;padding:3px 14px;font-size:.9rem;
+  }
+  @media (prefers-color-scheme: dark){ .month-head .subtotal{color:#bcd4f2} }
+
+  .week-label{
+    margin:16px 0 8px;font-size:.88rem;font-weight:700;color:var(--muted);
+    display:flex;align-items:center;gap:10px;
+  }
+  .week-label::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .days{
+    display:grid;gap:10px;
+    grid-template-columns:repeat(5,1fr);
+  }
+  @media (max-width:760px){ .days{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:460px){ .days{grid-template-columns:repeat(2,1fr)} }
+  .day{
+    background:var(--card);
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    padding:12px 8px 10px;
+    text-align:center;
+    position:relative;
+  }
+  .day .date{font-size:1.02rem;font-weight:800;line-height:1.3}
+  .day .date .dow{font-size:.88rem;font-weight:700;color:var(--muted)}
+  .day .count{font-size:2.15rem;font-weight:800;line-height:1.15;color:var(--num)}
+  .day .count small{font-size:1.05rem;font-weight:700}
+  .day .tag{font-size:.78rem;font-weight:700;color:var(--muted)}
+  .day.today{
+    border-color:var(--accent-line);border-width:2.5px;
+    background:var(--accent-bg);
+  }
+  .day.today::before{
+    content:"本日";
+    position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+    background:var(--accent);color:#fff;font-size:.72rem;font-weight:800;
+    padding:1px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .day.max .count{color:#b35c00}
+  @media (prefers-color-scheme: dark){ .day.max .count{color:#f0a13c} }
+
+  .legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:.86rem;color:var(--muted)}
+  .legend b{color:var(--text)}
+
+  /* ---------- Tentative (12/15) ---------- */
+  .tentative{
+    margin-top:18px;
+    border:2.5px dashed var(--alert-line);
+    background:var(--alert-bg);
+    border-radius:12px;
+    padding:16px 18px;
+    color:var(--alert-text);
+  }
+  .tentative .t-head{font-weight:800;font-size:1.08rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .tentative p{margin:6px 0 0;font-size:.96rem;line-height:1.65}
+  .tentative .t-count{font-size:1.5rem;font-weight:800}
+
+  /* ---------- Work contents ---------- */
+  .routes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:640px){ .routes{grid-template-columns:1fr} }
+  .route{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    box-shadow:var(--shadow);padding:16px 18px;
+  }
+  .route h3{
+    margin:0 0 10px;font-size:1.12rem;
+    padding-bottom:8px;border-bottom:3px solid var(--navy);
+  }
+  .route ul{margin:0;padding:0;list-style:none}
+  .route li{
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:9px 0;border-bottom:1px solid var(--line);font-weight:600;
+  }
+  .route li:last-child{border-bottom:none}
+  .route li .days-n{
+    flex:0 0 auto;font-weight:800;color:var(--navy);
+    background:var(--chip-bg);border-radius:6px;padding:1px 10px;font-size:.92rem;white-space:nowrap;
+  }
+  @media (prefers-color-scheme: dark){ .route li .days-n{color:#bcd4f2} }
+  .route li .days-n.none{background:transparent;color:var(--muted);font-weight:700}
+
+  /* ---------- Meeting decisions ---------- */
+  .decision-card{
+    background:var(--card);
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .decision-head{
+    background:var(--navy);color:#fff;
+    padding:14px 18px;
+  }
+  .decision-head h2{margin:0;color:#fff;font-size:1.25rem}
+  .decision-head p{margin:4px 0 0;font-size:.9rem;color:#cfdeee}
+  .decision-body{padding:6px 18px 14px}
+  .d-item{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .d-item:last-child{border-bottom:none}
+  .d-label{
+    flex:0 0 auto;align-self:flex-start;
+    background:var(--navy);color:#fff;
+    font-size:.82rem;font-weight:800;
+    border-radius:6px;padding:3px 10px;white-space:nowrap;
+    margin-top:2px;
+  }
+  @media (prefers-color-scheme: dark){ .d-label{background:var(--navy-2)} }
+  .d-text{font-weight:600;font-size:1rem;line-height:1.6}
+  .d-text .sub{display:block;font-weight:500;color:var(--muted);font-size:.9rem;margin-top:2px}
+  .equip{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .equip span{
+    background:var(--chip-bg);border-radius:8px;
+    padding:6px 14px;font-weight:700;font-size:.95rem;
+  }
+  .equip b{font-size:1.15rem;font-weight:800;color:var(--num)}
+  @media (max-width:520px){
+    .d-item{flex-direction:column;gap:6px}
+  }
+
+  /* ---------- Pending day cards (start-date change) ---------- */
+  .day.pending{border-style:dashed}
+  .day .tag.pending-tag{
+    display:inline-block;margin-top:5px;
+    background:var(--alert-bg);color:var(--alert-text);
+    border:1px solid var(--alert-line);border-radius:6px;padding:1px 8px;
+  }
+
+  /* ---------- To-confirm ---------- */
+  .alert-card{
+    background:var(--alert-bg);
+    border:2px solid var(--alert-line);
+    border-radius:12px;
+    padding:18px;
+    color:var(--alert-text);
+  }
+  .alert-card h2 .no{background:#a86e00;color:#fff}
+  .confirm-list{margin:0;padding:0;list-style:none}
+  .confirm-list li{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:11px 0;border-bottom:1px solid var(--alert-line);
+    font-weight:700;font-size:1.02rem;
+  }
+  .confirm-list li:last-child{border-bottom:none}
+  .confirm-badge{
+    flex:0 0 auto;background:#a86e00;color:#fff;
+    font-size:.8rem;font-weight:800;border-radius:999px;padding:3px 12px;white-space:nowrap;
+  }
+  @media (prefers-color-scheme: dark){
+    .confirm-badge{background:#8a5f00}
+  }
+  .alert-note{margin:12px 0 0;font-size:.94rem;line-height:1.65}
+
+  /* ---------- Assembly / flow ---------- */
+  .flow{display:grid;grid-template-columns:1fr;gap:0}
+  .flow-step{
+    display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .flow-step:last-child{border-bottom:none}
+  .flow-time{
+    flex:0 0 118px;text-align:center;
+    background:var(--navy);color:#fff;border-radius:10px;
+    padding:10px 6px;align-self:flex-start;
+  }
+  .flow-time .t{display:block;font-size:1.35rem;font-weight:800;line-height:1.2}
+  .flow-time .l{display:block;font-size:.78rem;font-weight:700;color:#cfdeee;margin-top:2px}
+  @media (prefers-color-scheme: dark){ .flow-time{background:var(--navy-2)} }
+  .flow-body{flex:1;min-width:0}
+  .flow-body h3{margin:0 0 4px;font-size:1.12rem;line-height:1.4}
+  .flow-body p{margin:0;font-weight:600;line-height:1.6}
+  .flow-body p .sub{display:block;font-weight:500;color:var(--muted);font-size:.9rem;margin-top:3px}
+  .map-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:10px;text-decoration:none;
+    background:var(--accent);color:#fff;font-weight:800;font-size:.95rem;
+    padding:10px 18px;border-radius:8px;line-height:1.3;
+  }
+  .map-btn:active{opacity:.85}
+  .map-btn.sub-btn{background:var(--navy)}
+  .vehicles{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .vehicles span{background:var(--chip-bg);border-radius:8px;padding:6px 14px;font-weight:700;font-size:.95rem}
+  .vehicles b{font-size:1.12rem;font-weight:800;color:var(--num)}
+  @media (max-width:520px){
+    .flow-step{flex-direction:column;gap:10px}
+    .flow-time{flex:none;width:100%;display:flex;align-items:baseline;justify-content:center;gap:10px}
+    .flow-time .l{margin-top:0}
+    .map-btn{width:100%;justify-content:center}
+  }
+
+  footer{
+    margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:.88rem;line-height:1.7;
+  }
+  footer strong{color:var(--text)}
+
+  /* ---------- 本日の規制 ---------- */
+  .today-card{
+    background:var(--navy);color:#fff;
+    border:2.5px solid var(--accent-line);border-radius:14px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .today-head{
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;
+    padding:16px 18px 0;
+  }
+  .today-badge{
+    background:var(--accent);color:#fff;font-weight:800;font-size:1.05rem;
+    border-radius:8px;padding:4px 16px;white-space:nowrap;
+  }
+  .today-date{font-weight:800;font-size:1.12rem}
+  .today-state{margin:0;padding:8px 18px 0;font-weight:700;font-size:1rem;color:#ffd97a;line-height:1.55}
+  .today-body{padding:10px 18px 18px}
+  .today-main{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .today-sec{flex:0 0 auto;text-align:center;min-width:104px}
+  .today-sec .big-num{display:block;font-size:4.4rem;font-weight:800;line-height:1.05;color:#f2b63c}
+  .today-sec .sec-label{display:block;font-size:.95rem;font-weight:700;color:#cfdeee}
+  .today-sec-none{display:block;font-size:1.45rem;font-weight:800;line-height:1.4}
+  .today-info{flex:1;min-width:250px}
+  .today-row{
+    display:flex;gap:10px;padding:7px 0;
+    border-bottom:1px solid rgba(255,255,255,.18);font-size:1rem;
+  }
+  .today-row:last-child{border-bottom:none}
+  .today-row .k{flex:0 0 104px;font-weight:700;color:#cfdeee;font-size:.92rem;padding-top:2px}
+  .today-row .v{font-weight:700;line-height:1.55}
+  .today-thumb{margin-top:14px}
+  .today-thumb img{max-width:360px}
+  .today-note{margin:10px 2px 0;font-size:.92rem;color:#cfdeee;line-height:1.6}
+  .today-none-big{margin:2px 0 0;font-size:1.55rem;font-weight:800}
+  .today-next{
+    margin-top:12px;background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.22);border-radius:10px;
+    padding:12px 14px;font-size:1rem;line-height:1.6;
+  }
+  .today-next .k{display:block;font-size:.88rem;font-weight:700;color:#cfdeee}
+  .today-next strong{font-size:1.2rem}
+  .today-next .sub{display:block;font-size:.9rem;color:#cfdeee;margin-top:2px}
+  @media (max-width:520px){
+    .today-sec{min-width:88px}
+    .today-sec .big-num{font-size:3.6rem}
+    .today-row .k{flex-basis:92px}
+  }
+
+  /* ---------- 現場図面 ---------- */
+  .zumen-fig{margin:0 0 22px}
+  .zumen-fig:last-of-type{margin-bottom:0}
+  .zumen-fig h3{margin:0 0 8px;font-size:1.12rem}
+  .zumen-img{
+    display:block;width:100%;height:auto;
+    border:1.5px solid var(--line);border-radius:10px;background:#fff;
+  }
+  .zumen-group{
+    margin:0 0 8px;font-size:1.18rem;
+    padding-bottom:8px;border-bottom:3px solid var(--navy);
+  }
+  .zumen-lead{margin:0 0 16px;font-size:.98rem;line-height:1.65}
+  .zumen-grid{display:grid;grid-template-columns:1fr;gap:24px}
+  .zumen-grid .zumen-fig{margin:0}
+  .zumen-err{
+    display:inline-block;margin:8px 2px 0;
+    background:var(--alert-bg);color:var(--alert-text);
+    border:1px solid var(--alert-line);border-radius:6px;
+    padding:3px 10px;font-size:.92rem;font-weight:700;line-height:1.5;
+  }
+
+  /* ---------- 箇所ごとの規制図面 ---------- */
+  .kisei-caution{
+    background:var(--alert-bg);color:var(--alert-text);
+    border:2px solid var(--alert-line);border-radius:10px;
+    padding:14px 16px;margin:0 0 18px;
+    font-size:.98rem;line-height:1.65;font-weight:600;
+  }
+  .kisei-caution strong{font-weight:800}
+  .kisei-caution .kc-head{
+    display:block;font-size:1.05rem;font-weight:800;margin-bottom:4px;
+  }
+  .sec-block{
+    background:var(--card-2);
+    border:1px solid var(--line);border-radius:10px;
+    padding:14px;
+    display:flex;flex-direction:column;
+  }
+  .sec-block .zumen-fig h3{font-size:1.08rem}
+  .kisei-method{
+    margin-top:14px;
+    background:var(--card);
+    border:1.5px solid var(--line);border-radius:10px;
+    padding:12px 14px;
+  }
+  .kisei-method .km-row{
+    display:flex;gap:10px;padding:7px 0;align-items:flex-start;
+  }
+  .kisei-method .km-row + .km-row{border-top:1px solid var(--line)}
+  .kisei-method .km-label{
+    flex:0 0 auto;background:var(--navy);color:#fff;
+    font-size:.82rem;font-weight:800;border-radius:6px;
+    padding:3px 10px;white-space:nowrap;margin-top:3px;
+  }
+  @media (prefers-color-scheme: dark){ .kisei-method .km-label{background:var(--navy-2)} }
+  .kisei-method .km-text{font-weight:700;font-size:.98rem;line-height:1.6}
+  .kisei-method .km-text .sub{display:block;font-weight:600;color:var(--muted);font-size:.88rem;margin-top:2px}
+  .kisei-pattern{
+    margin:12px 0 0;
+    background:var(--accent-bg);
+    border:1.5px solid var(--accent-line);border-radius:10px;
+    padding:10px 14px;font-weight:800;font-size:1rem;line-height:1.6;
+  }
+  .tonnage{
+    margin:12px 0 0;
+    background:var(--card);
+    border:1.5px solid var(--line);border-radius:10px;
+    padding:10px 14px;font-weight:700;font-size:1rem;line-height:1.6;
+  }
+  .tonnage .truck{font-weight:800;color:var(--num);white-space:nowrap}
+
+  /* ---------- 週間天気 ---------- */
+  .wx-strip{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;
+  }
+  .wx-cell{
+    background:var(--card-2);
+    border:1px solid var(--line);border-radius:10px;
+    padding:10px 4px 10px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    min-width:0;
+  }
+  @media (max-width:520px){
+    .wx-strip{gap:6px}
+    .wx-cell{padding:8px 1px}
+    .wx-date{font-size:.74rem;letter-spacing:-.02em}
+    .wx-mark{font-size:1rem}
+    .wx-cond{font-size:.7rem}
+    .wx-temp{font-size:.84rem}
+    .wx-rain{font-size:.86rem}
+  }
+  .wx-date{font-weight:800;white-space:nowrap;font-size:.95rem;line-height:1.3}
+  .wx-mark{font-size:2.1rem;line-height:1.25;letter-spacing:.02em;white-space:nowrap}
+  .wx-cond{font-weight:700;font-size:.8rem;color:var(--muted);line-height:1.35}
+  .wx-temp{font-weight:800;font-size:.95rem;line-height:1.4;white-space:nowrap}
+  .wx-temp .hi{color:#c0392b}
+  .wx-temp .lo{color:#2563eb}
+  @media (prefers-color-scheme: dark){
+    .wx-temp .hi{color:#f08a7a}
+    .wx-temp .lo{color:#8db4f2}
+  }
+  .wx-rain{font-weight:800;color:var(--num);font-size:.95rem;line-height:1.35;display:flex;flex-direction:column;align-items:center}
+  .wx-rain .wx-rain-label{font-size:.72rem;font-weight:700;color:var(--muted);white-space:nowrap}
+  .wx-note{margin:12px 2px 0;font-size:.92rem;color:var(--muted);line-height:1.6}
+  .wx-link{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:12px;text-decoration:none;
+    background:var(--navy);color:#fff;font-weight:800;font-size:.95rem;
+    padding:10px 18px;border-radius:8px;line-height:1.3;
+  }
+  .wx-link:active{opacity:.85}
+  @media (max-width:520px){ .wx-link{width:100%;justify-content:center} }
+
+  /* ---------- その夜の天気（各日ブロック） ---------- */
+  .night-weather{
+    margin:12px 0 0;
+    background:var(--accent-bg);
+    border:1.5px solid var(--accent-line);border-radius:10px;
+    padding:10px 14px;font-weight:600;font-size:1rem;line-height:1.6;
+  }
+  .night-weather .nw-label{display:block;font-weight:800;font-size:.92rem;margin-bottom:2px}
+  .kisei-head{
+    margin:16px 0 4px;font-size:1.05rem;
+    padding-bottom:6px;border-bottom:2.5px solid var(--navy);
+  }
+  .kisei-list{display:flex;flex-direction:column;gap:16px;margin-top:10px}
+  .kisei-fig{margin:0}
+  .kisei-fig figcaption{font-weight:800;font-size:.95rem;line-height:1.5;margin:0 0 6px}
+
+  /* ---------- 元に戻るボタン（ページ末尾に配置・固定表示なし） ---------- */
+  .back-btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:min(420px, calc(100% - 32px));
+    margin:28px auto 40px;
+    background:var(--navy);color:#fff;
+    border:2px solid var(--accent-line);
+    border-radius:999px;
+    font-size:1.1rem;font-weight:800;line-height:1.3;
+    padding:16px 28px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    font-family:inherit;
+  }
+  .back-btn:active{opacity:.85}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <span class="badge badge-night">🌙 夜間工事</span>
+      <span class="badge badge-share">警備員 共有資料</span>
+      <span class="badge badge-share">11月9日 打ち合わせ反映</span>
+    </div>
+    <h1>（主）益田澄川線外（駅前工区）<br>県単舗装整備工事</h1>
+    <p class="header-sub">
+      元請け：<strong>中国道路株式会社</strong><br>
+      期間：<strong>11月19日（木）夜勤スタート～12月14日（月）</strong>　平日の夜間のみ（土・日は実施なし）<br>
+      集合：<strong>19：30（予定） 中国道路詰所</strong>　／　勤務・規制：<strong>21：00～翌06：00</strong>
+    </p>
+  </div>
+</header>
+
+<nav class="quick" aria-label="ページ内目次">
+  <div class="quick-inner">
+    <a href="#today" class="today-link">本日の規制</a>
+    <a href="#tenki">週間天気</a>
+    <a href="#kettei" class="decision-link">決定事項（11月9日）</a>
+    <a href="#shugo">集合・勤務</a>
+    <a href="#gaiyo">① 概要</a>
+    <a href="#ninzu">② 日別人数</a>
+    <a href="#naiyo">③ 工事内容</a>
+    <a href="#zumen">現場図面</a>
+    <a href="#kakunin" class="warn-link">④ 要確認事項</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<main>
+
+  <!-- 本日の規制 -->
+  <section id="today">
+    <div class="today-card">
+      <div class="today-head">
+        <span class="today-badge">本日の規制</span>
+        <span class="today-date" id="todayDate"></span>
+      </div>
+      <p class="today-state" id="todayState"></p>
+      <div class="today-body" id="todayBody">
+        <p class="today-note">開いた日付に応じて、その日の規制内容を表示します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 週間天気 -->
+  <section id="tenki">
+    <h2><span class="no">天</span>週間天気（益田市）</h2>
+    <p class="section-lead">作業日の天気予報です。夜間作業の準備（雨具・防寒）の目安にしてください。</p>
+    <div class="card">
+      <div class="wx-strip" role="list" aria-label="作業日の天気一覧">
+        <div class="wx-cell" role="listitem"><span class="wx-date">19日（木）</span><span class="wx-mark" aria-hidden="true">☁️→🌧️</span><span class="wx-cond">曇のち雨</span><span class="wx-temp"><span class="hi">11</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>80%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">20日（金）</span><span class="wx-mark" aria-hidden="true">🌧️→☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">10</span> / <span class="lo">6℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>70%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">23日（月）</span><span class="wx-mark" aria-hidden="true">☀️→🌧️</span><span class="wx-cond">晴のち雨</span><span class="wx-temp"><span class="hi">16</span> / <span class="lo">1℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>70%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">24日（火）</span><span class="wx-mark" aria-hidden="true">🌧️→☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">16</span> / <span class="lo">9℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>80%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">25日（水）</span><span class="wx-mark" aria-hidden="true">☁️→☀️</span><span class="wx-cond">曇のち晴</span><span class="wx-temp"><span class="hi">14</span> / <span class="lo">9℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">26日（木）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">16</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">27日（金）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">30日（月）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">6℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
+      </div>
+      <p class="wx-note">11月17日8時発表（tenki.jp）。予報は変わることがあります。12月分は予報が出たら追記します。</p>
+      <a class="wx-link" href="https://tenki.jp/lite/forecast/7/35/6820/32204/10days.html" target="_blank" rel="noopener">tenki.jp 益田市の天気予報を見る</a>
+    </div>
+  </section>
+
+  <!-- 打ち合わせ決定事項 -->
+  <section id="kettei">
+    <div class="decision-card">
+      <div class="decision-head">
+        <h2>打ち合わせで決まったこと</h2>
+        <p>11月9日　中国道路株式会社 久保様との打ち合わせ結果</p>
+      </div>
+      <div class="decision-body">
+        <div class="d-item">
+          <span class="d-label">開始日</span>
+          <div class="d-text">開始は<strong>11月19日（木）の夜勤から</strong>になりました（当初の11月16日開始から変更）。
+            <span class="sub">11月16日（月）～11月18日（水）は実施なしとし、合計は<strong>18日間・延べ90名</strong>に確定しました。詳しくは「② 日別人数」をご覧ください。</span>
+          </div>
+        </div>
+        <div class="d-item">
+          <span class="d-label">集合</span>
+          <div class="d-text">工事期間中の全体集合は、<strong>19：30（予定）に中国道路詰所</strong>です。
+            <span class="sub">場所は下の「集合から勤務までの流れ」の地図リンクで確認してください。</span>
+          </div>
+        </div>
+        <div class="d-item">
+          <span class="d-label">勤務・規制</span>
+          <div class="d-text">勤務時間は<strong>21：00～翌06：00</strong>です。
+            <span class="sub">夜間規制時間も<strong>21：00～翌06：00</strong>で申請しています。</span>
+          </div>
+        </div>
+        <div class="d-item">
+          <span class="d-label">移動</span>
+          <div class="d-text"><strong>夕礼のあと、現場へ移動</strong>します。
+            <span class="sub">移動は、信号機と標識をのせた軽トラック<strong>2台</strong>と、別に軽トラック<strong>1台</strong>の、合計3台とします。現場の駐車場所は地図リンクの場所です。</span>
+          </div>
+        </div>
+        <div class="d-item">
+          <span class="d-label">規制</span>
+          <div class="d-text">本線は、<strong>リモコン信号機を使った片側交互通行</strong>とします。
+            <span class="sub">工区側の側道は<strong>通行止め</strong>とし、コーン・バー・看板を置いて対応します。規制は、図面の色分け箇所<strong>①から⑧へ順番に</strong>かけていきます。各箇所の図面は下の「<a href="#zumen">現場図面</a>」をご覧ください。</span>
+          </div>
+        </div>
+        <div class="d-item">
+          <span class="d-label">配置</span>
+          <div class="d-text"><strong>マスコスと交番の出入口</strong>には、警備員を配置します。
+            <span class="sub">特に、警察の緊急出動の際は、すぐに対応できるようにしてください。現場図面は下の「<a href="#zumen">現場図面</a>」に掲載しました（警備員の配置位置は図面に書き込まれていません）。配置の詳細は決まり次第、別途お知らせします。</span>
+          </div>
+        </div>
+        <div class="d-item">
+          <span class="d-label">人員</span>
+          <div class="d-text">信号機を使うことで、<strong>人員を1名減らすことができます</strong>。
+            <span class="sub">稼働が厳しい日は、相談のうえ<strong>5名体制</strong>とすることも可能です。</span>
+          </div>
+        </div>
+        <div class="d-item">
+          <span class="d-label">資機材</span>
+          <div class="d-text">企業警備保障が準備する資機材は、次のとおりです。
+            <div class="equip">
+              <span>LED矢印板 <b>6枚</b></span>
+              <span>リモコン信号機 <b>2機</b></span>
+              <span>LED標識板 <b>2機</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 集合から勤務までの流れ -->
+  <section id="shugo">
+    <h2><span class="no">!</span>集合から勤務までの流れ</h2>
+    <p class="section-lead">工事期間中、毎回この流れです。集合場所と駐車場所は、地図リンクをタップして確認してください。</p>
+
+    <div class="card" style="padding:6px 18px">
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-time"><span class="t">19：30</span><span class="l">集合（予定）</span></div>
+          <div class="flow-body">
+            <h3>全体集合 ― 中国道路詰所</h3>
+            <p>工事期間中の全体集合場所は<strong>中国道路詰所</strong>です。集合時間は<strong>19：30の予定</strong>です。</p>
+            <a class="map-btn" href="https://maps.app.goo.gl/14XStc2NfGG564c88" target="_blank" rel="noopener">📍 集合場所を地図で開く（中国道路詰所）</a>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-time"><span class="t">夕礼後</span><span class="l">現場へ移動</span></div>
+          <div class="flow-body">
+            <h3>夕礼のあと、現場へ移動</h3>
+            <p>移動は次の車両で行います。</p>
+            <div class="vehicles">
+              <span>信号機・標識をのせた軽トラック <b>2台</b></span>
+              <span>軽トラック（別に） <b>1台</b></span>
+            </div>
+            <p style="margin-top:10px">現場では、下の地図リンクの場所に駐車してください。<span class="sub">これが現場の駐車場所です。</span></p>
+            <a class="map-btn sub-btn" href="https://maps.app.goo.gl/eumrtjza8GFJGmQv7" target="_blank" rel="noopener">📍 現場の駐車場所を地図で開く</a>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-time"><span class="t">21：00</span><span class="l">～ 翌06：00</span></div>
+          <div class="flow-body">
+            <h3>勤務時間 ・ 夜間規制時間</h3>
+            <p>勤務時間は<strong>21：00～翌06：00</strong>です。<span class="sub">夜間規制時間も<strong>21：00～翌06：00</strong>で申請しています（勤務時間と同じです）。</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ① 概要 -->
+  <section id="gaiyo">
+    <h2><span class="no">1</span>現場の概要</h2>
+    <p class="section-lead">実施工程表（令和8年10月30日作成）と、11月9日の打ち合わせで決まった内容に基づきます。</p>
+
+    <div class="stats" aria-label="合計">
+      <div class="stat"><span class="big">18<small> 日間</small></span><span class="label">実施日数</span></div>
+      <div class="stat"><span class="big">90<small> 名</small></span><span class="label">延べ警備人数</span></div>
+      <div class="stat"><span class="big">夜間</span><span class="label">全日 夜間作業</span></div>
+    </div>
+
+    <div class="card" style="padding:6px 18px">
+      <table class="spec">
+        <tr><th>工事名</th><td>（主）益田澄川線外（駅前工区）県単舗装整備工事</td></tr>
+        <tr><th>元請け</th><td>中国道路株式会社</td></tr>
+        <tr><th>実施期間</th><td>11月19日（木）夜勤スタート ～12月14日（月）<span class="note">開始日は、11月9日の打ち合わせで当初の11月16日から11月19日に変更されました。11月16日～11月18日は実施なしです。平日の夜間のみ実施します。土曜日・日曜日は実施なしです。</span></td></tr>
+        <tr><th>集合</th><td>19：30（予定） ― 中国道路詰所（全体集合）<span class="note">場所は上の「集合から勤務までの流れ」の地図リンクで確認してください。夕礼のあと現場へ移動します。</span></td></tr>
+        <tr><th>勤務時間</th><td>21：00～翌06：00<span class="note">夜間規制時間も21：00～翌06：00で申請しています。</span></td></tr>
+        <tr><th>移動・駐車</th><td>軽トラック 計3台で移動<span class="note">信号機と標識をのせた軽トラック2台と、別に軽トラック1台。現場の駐車場所は上の地図リンクの場所です。</span></td></tr>
+        <tr><th>対象路線</th><td>益田澄川線／益田停車場線<span class="note">駅前工区の舗装整備工事です。詳しい工事内容は「③ 工事内容」をご覧ください。</span></td></tr>
+        <tr><th>必要人数</th><td>全18日間・延べ90名<span class="note">11月：8日間・延べ46名／12月（～12月14日）：10日間・延べ44名。日ごとの人数は「② 日別人数」のとおりです。</span></td></tr>
+        <tr><th>資料の根拠</th><td>実施工程表（10月30日作成）の「警備」「警備（夜間）」欄／11月9日の打ち合わせ（中国道路 久保様）の決定事項と、その後の確定連絡</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ② 日別人数 -->
+  <section id="ninzu">
+    <h2><span class="no">2</span>日別の必要人数</h2>
+    <p class="section-lead">その日に必要な警備員の人数です。日にちと人数をよく確認してください。土・日は実施がありません。開始は11月19日（木）からで、11月16日～11月18日は実施なしです。また、信号機の使用により1名の削減が可能で、稼働が厳しい日は相談のうえ5名体制とすることも可能です（上の「打ち合わせで決まったこと」をご覧ください）。</p>
+
+    <div class="month-head">
+      <h3>11月</h3>
+      <span class="subtotal">8日間 ・ 延べ46名</span>
+    </div>
+
+    <p class="week-label">11月19日（木）～20日（金）</p>
+    <div class="days">
+      <div class="day" data-date="2026-11-19"><div class="date">11月19日 <span class="dow">（木）</span></div><div class="count">4<small> 名</small></div><div class="tag">実施の初日</div></div>
+      <div class="day max" data-date="2026-11-20"><div class="date">11月20日 <span class="dow">（金）</span></div><div class="count">6<small> 名</small></div></div>
+    </div>
+
+    <p class="week-label">11月23日（月）～27日（金）</p>
+    <div class="days">
+      <div class="day max" data-date="2026-11-23"><div class="date">11月23日 <span class="dow">（月）</span></div><div class="count">6<small> 名</small></div></div>
+      <div class="day max" data-date="2026-11-24"><div class="date">11月24日 <span class="dow">（火）</span></div><div class="count">6<small> 名</small></div></div>
+      <div class="day max" data-date="2026-11-25"><div class="date">11月25日 <span class="dow">（水）</span></div><div class="count">6<small> 名</small></div></div>
+      <div class="day max" data-date="2026-11-26"><div class="date">11月26日 <span class="dow">（木）</span></div><div class="count">6<small> 名</small></div></div>
+      <div class="day max" data-date="2026-11-27"><div class="date">11月27日 <span class="dow">（金）</span></div><div class="count">6<small> 名</small></div></div>
+    </div>
+
+    <p class="week-label">11月30日（月）</p>
+    <div class="days">
+      <div class="day max" data-date="2026-11-30"><div class="date">11月30日 <span class="dow">（月）</span></div><div class="count">6<small> 名</small></div></div>
+    </div>
+
+    <div class="month-head">
+      <h3>12月（～12月14日）</h3>
+      <span class="subtotal">10日間 ・ 延べ44名</span>
+    </div>
+
+    <p class="week-label">12月1日（火）～4日（金）</p>
+    <div class="days">
+      <div class="day max" data-date="2026-12-01"><div class="date">12月1日 <span class="dow">（火）</span></div><div class="count">6<small> 名</small></div></div>
+      <div class="day" data-date="2026-12-02"><div class="date">12月2日 <span class="dow">（水）</span></div><div class="count">1<small> 名</small></div></div>
+      <div class="day" data-date="2026-12-03"><div class="date">12月3日 <span class="dow">（木）</span></div><div class="count">5<small> 名</small></div></div>
+      <div class="day" data-date="2026-12-04"><div class="date">12月4日 <span class="dow">（金）</span></div><div class="count">5<small> 名</small></div></div>
+    </div>
+
+    <p class="week-label">12月7日（月）～11日（金）</p>
+    <div class="days">
+      <div class="day" data-date="2026-12-07"><div class="date">12月7日 <span class="dow">（月）</span></div><div class="count">5<small> 名</small></div></div>
+      <div class="day" data-date="2026-12-08"><div class="date">12月8日 <span class="dow">（火）</span></div><div class="count">5<small> 名</small></div></div>
+      <div class="day" data-date="2026-12-09"><div class="date">12月9日 <span class="dow">（水）</span></div><div class="count">5<small> 名</small></div></div>
+      <div class="day" data-date="2026-12-10"><div class="date">12月10日 <span class="dow">（木）</span></div><div class="count">5<small> 名</small></div></div>
+      <div class="day" data-date="2026-12-11"><div class="date">12月11日 <span class="dow">（金）</span></div><div class="count">5<small> 名</small></div></div>
+    </div>
+
+    <p class="week-label">12月14日（月）― 最終日</p>
+    <div class="days">
+      <div class="day" data-date="2026-12-14"><div class="date">12月14日 <span class="dow">（月）</span></div><div class="count">2<small> 名</small></div><div class="tag">実施期間の最終日</div></div>
+    </div>
+
+    <div class="legend">
+      <span><b>6名の日</b>が最も多くなっています（11月20日～12月1日の平日）。</span>
+      <span>1名の日は 12月2日（水）、2名の日は 12月14日（月）です。</span>
+    </div>
+
+    <div class="tentative" role="note" aria-label="12月15日についての注意">
+      <div class="t-head">⚠ 12月15日（火）について ― 要確認</div>
+      <p>
+        実施工程表では<strong>12月15日（火）も2名</strong>となっていますが、人数は <span class="t-count">1名</span> に<strong>変更</strong>されました。<br>
+        ただし、今回の実施期間は<strong>12月14日（月）まで</strong>とされているため、
+        12月15日分は<strong>確定分の合計（延べ90名）には含めていません</strong>。<br>
+        12月15日に実施するかどうかは<strong>要確認</strong>です。連絡があるまで確定として扱わないでください。
+      </p>
+    </div>
+  </section>
+
+  <!-- ③ 工事内容 -->
+  <section id="naiyo">
+    <h2><span class="no">3</span>工事内容の概要</h2>
+    <p class="section-lead">実施工程表に載っている作業です。2路線分の舗装整備を行います。</p>
+
+    <div class="routes">
+      <div class="route">
+        <h3>益田澄川線</h3>
+        <ul>
+          <li><span>舗装打ち換え工</span><span class="days-n">4日</span></li>
+          <li><span>切削オーバーレイ工</span><span class="days-n">5日</span></li>
+          <li><span>区画線工</span><span class="days-n">3日</span></li>
+          <li><span>トップコート</span><span class="days-n none">工程表に記載</span></li>
+        </ul>
+      </div>
+      <div class="route">
+        <h3>益田停車場線</h3>
+        <ul>
+          <li><span>切削オーバーレイ工</span><span class="days-n">3日</span></li>
+          <li><span>区画線工</span><span class="days-n">2日</span></li>
+          <li><span>トップコート（交差点内含む）</span><span class="days-n none">工程表に記載</span></li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin:12px 2px 0;color:var(--muted);font-size:.9rem">※ 規制の方法・配置・資機材については、上の「打ち合わせで決まったこと」を、現場図面は下の「現場図面」をご覧ください。その他の未定の項目は下の「④ 要確認事項」のとおりです。</p>
+  </section>
+
+  <!-- 現場図面 -->
+  <section id="zumen">
+    <h2><span class="no">図</span>現場図面</h2>
+    <p class="section-lead">A3判の現場図面（施工箇所①〜⑧）と、各箇所に対応する規制図面です。<strong>細部は、このページ全体を2本指のピンチで拡大して</strong>ご覧ください（文字も図面も一緒に大きくなります）。図面は高解像度の画像で載せているので、拡大しても細部まで読めます。箇所番号・延長・面積などを確認してください。</p>
+
+    <div class="card">
+      <figure class="zumen-fig">
+        <h3>現場図面（施工箇所①〜③）</h3>
+        <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i01.b64" alt="現場図面（施工箇所①〜③）― 交差点部を含む区間の施工箇所図" width="1200" height="848" loading="lazy">
+      </figure>
+      <figure class="zumen-fig">
+        <h3>現場図面（施工箇所④〜⑧）</h3>
+        <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i02.b64" alt="現場図面（施工箇所④〜⑧）― 益田駅前・EAGA・市営駐車場のある区間の施工箇所図" width="1200" height="848" loading="lazy">
+      </figure>
+      <p style="margin:14px 2px 0;color:var(--muted);font-size:.92rem">※ この図面は施工箇所を示す図面です。警備員の配置位置は図面に書き込まれていないため、配置の詳細は決まり次第、別途連絡します。</p>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3 class="zumen-group">規制箇所①〜⑧（個別）</h3>
+      <p class="zumen-lead">規制は、<strong>リモコン信号機による片側交互通行</strong>で、色分けされた箇所<strong>①から⑧へ、順番に1箇所ずつ</strong>かけていきます。各箇所の実施日と、その日の警備人数は見出しのとおりです。各箇所には、その箇所に対応する<strong>規制図面</strong>（規制計画図と標準図）も付けました。規制方法は各箇所に明記しています。</p>
+      <div class="kisei-caution" role="note">
+        <span class="kc-head">⚠ 「滅灯（減灯）」について</span>
+        滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。本線の片側交互通行はリモコン操作の工事用信号機で行います。
+      </div>
+      <div class="zumen-grid">
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>11月19日（木）― 実施の初日の作業（番号箇所なし）</h3>
+          </figure>
+          <div class="kisei-method" aria-label="11月19日（木）の作業内容">
+            <div class="km-row"><span class="km-label">工事区間</span><span class="km-text"><strong>緑と青の区間の、横断歩道がわ</strong>を施工します<span class="sub">警備員4名で対応します。</span></span></div>
+          </div>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇りのち雨（降水確率70〜80%）。雨具を用意してください</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i03.b64" alt="当日の規制全体図（配置図）― 11月19日（木）実施の初日の航空写真地図上に警備員配置・信号機軽トラ・矢印板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所① ― 11月20日（金）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i04.b64" alt="規制箇所①の個別図面（11月20日（金）の凡例と該当区間の路面図）" width="900" height="801" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：10.7t ＋ 5.9t ＝ 合計16.6t <span class="truck">（10tトラック約2台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇り（降水確率40%）。明け方まで雨はなさそうです</p>
+          <div class="kisei-method" aria-label="規制箇所①の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">交差点部の箇所です。規制計画図【停車場線 ①】【停車場線 ②】と、交差点部の標準図（図-3）をあわせて確認してください。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i05.b64" alt="当日の規制全体図（配置図）― 規制箇所①（11月20日（金））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田停車場線 ①】― パターン①（北側車線）・パターン②（南側車線）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i06.b64" alt="規制計画図【（主）益田停車場線 ①】― 規制範囲パターン①（北側車線）とパターン②（南側車線）、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田停車場線 ②】― パターン③（南側車線）・パターン④（北側車線）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i07.b64" alt="規制計画図【（主）益田停車場線 ②】― 規制範囲パターン③（南側車線）とパターン④（北側車線）" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-3 片側交互通行（交差点部）（夜間施工）標準図</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i08.b64" alt="図-3 片側交互通行（交差点部）（夜間施工）の標準図 ― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所② ― 11月23日（月）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i09.b64" alt="規制箇所②の個別図面（11月23日（月）の凡例と該当区間の路面図）" width="900" height="919" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：65.6t <span class="truck">（10tトラック約7台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜遅く雨（降水確率70%）。最低気温1℃と冷え込みます。防寒をしっかり</p>
+          <div class="kisei-method" aria-label="規制箇所②の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">北側車線の規制範囲はパターン①・④です。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i10.b64" alt="当日の規制全体図（配置図）― 規制箇所②（11月23日（月））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田停車場線 ①】― パターン①（北側車線）・パターン②（南側車線）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i06.b64" alt="規制計画図【（主）益田停車場線 ①】― 規制範囲パターン①（北側車線）とパターン②（南側車線）、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田停車場線 ②】― パターン③（南側車線）・パターン④（北側車線）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i07.b64" alt="規制計画図【（主）益田停車場線 ②】― 規制範囲パターン③（南側車線）とパターン④（北側車線）" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-2 片側交互通行規制（夜間）標準図 ― 直線部</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i11.b64" alt="図-2 片側交互通行規制（夜間）の標準図（直線部）― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所③ ― 11月24日（火）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i12.b64" alt="規制箇所③の個別図面（11月24日（火）の凡例と該当区間の路面図）" width="900" height="931" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：65.6t <span class="truck">（10tトラック約7台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇りのち晴れ（降水確率20〜30%）</p>
+          <div class="kisei-method" aria-label="規制箇所③の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">南側車線の規制範囲はパターン②・③です。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i13.b64" alt="当日の規制全体図（配置図）― 規制箇所③（11月24日（火））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田停車場線 ①】― パターン①（北側車線）・パターン②（南側車線）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i06.b64" alt="規制計画図【（主）益田停車場線 ①】― 規制範囲パターン①（北側車線）とパターン②（南側車線）、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田停車場線 ②】― パターン③（南側車線）・パターン④（北側車線）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i07.b64" alt="規制計画図【（主）益田停車場線 ②】― 規制範囲パターン③（南側車線）とパターン④（北側車線）" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-2 片側交互通行規制（夜間）標準図 ― 直線部</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i11.b64" alt="図-2 片側交互通行規制（夜間）の標準図（直線部）― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所④ ― 11月25日（水）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i14.b64" alt="規制箇所④の個別図面（11月25日（水）の凡例と該当区間の路面図）" width="900" height="811" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：23.1t <span class="truck">（10tトラック約3台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ時々曇り（降水確率10〜40%）</p>
+          <div class="kisei-method" aria-label="規制箇所④の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">規制範囲はパターン⑤（吉田横断4号線の東側）です。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i15.b64" alt="当日の規制全体図（配置図）― 規制箇所④（11月25日（水））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田澄川線】― パターン①〜⑤</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i16.b64" alt="規制計画図【（主）益田澄川線】― 規制範囲パターン①から⑤、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-2 片側交互通行規制（夜間）標準図 ― 直線部</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i11.b64" alt="図-2 片側交互通行規制（夜間）の標準図（直線部）― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所⑤ ― 11月26日（木）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i17.b64" alt="規制箇所⑤の個別図面（11月26日（木）の凡例と該当区間の路面図）" width="900" height="867" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：47.6t <span class="truck">（10tトラック約5台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇りのち晴れ（降水確率40%）</p>
+          <div class="kisei-method" aria-label="規制箇所⑤の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">規制範囲はパターン③（南側車線の東側）です。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i18.b64" alt="当日の規制全体図（配置図）― 規制箇所⑤（11月26日（木））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田澄川線】― パターン①〜⑤</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i16.b64" alt="規制計画図【（主）益田澄川線】― 規制範囲パターン①から⑤、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-2 片側交互通行規制（夜間）標準図 ― 直線部</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i11.b64" alt="図-2 片側交互通行規制（夜間）の標準図（直線部）― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所⑥ ― 11月27日（金）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i19.b64" alt="規制箇所⑥の個別図面（11月27日（金）の凡例と該当区間の路面図）" width="900" height="900" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：68.7t <span class="truck">（10tトラック約7台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ（降水確率20%）</p>
+          <div class="kisei-method" aria-label="規制箇所⑥の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">規制範囲はパターン②（南側車線の西側）です。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i20.b64" alt="当日の規制全体図（配置図）― 規制箇所⑥（11月27日（金））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田澄川線】― パターン①〜⑤</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i16.b64" alt="規制計画図【（主）益田澄川線】― 規制範囲パターン①から⑤、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-2 片側交互通行規制（夜間）標準図 ― 直線部</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i11.b64" alt="図-2 片側交互通行規制（夜間）の標準図（直線部）― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所⑦ ― 11月30日（月）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i21.b64" alt="規制箇所⑦の個別図面（11月30日（月）の凡例と該当区間の路面図）" width="900" height="844" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：64.0t <span class="truck">（10tトラック約7台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>予報の信頼度が低めです。直前に確認してください</p>
+          <div class="kisei-method" aria-label="規制箇所⑦の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">規制範囲はパターン④（北側車線の東側）です。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i22.b64" alt="当日の規制全体図（配置図）― 規制箇所⑦（11月30日（月））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田澄川線】― パターン①〜⑤</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i16.b64" alt="規制計画図【（主）益田澄川線】― 規制範囲パターン①から⑤、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-2 片側交互通行規制（夜間）標準図 ― 直線部</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i11.b64" alt="図-2 片側交互通行規制（夜間）の標準図（直線部）― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="sec-block">
+          <figure class="zumen-fig">
+            <h3>規制箇所⑧ ― 12月1日（火）・警備 6名</h3>
+            <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i23.b64" alt="規制箇所⑧の個別図面（12月1日（火）の凡例と該当区間の路面図）" width="900" height="886" loading="lazy">
+          </figure>
+          <p class="tonnage">アスファルト合材：74.0t <span class="truck">（10tトラック約8台分）</span></p>
+          <div class="kisei-method" aria-label="規制箇所⑧の規制方法">
+            <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
+            <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
+          </div>
+          <p class="kisei-pattern">規制範囲はパターン①（北側車線の西側）です。</p>
+          <h4 class="kisei-head">規制図面</h4>
+          <div class="kisei-list">
+            <figure class="kisei-fig">
+              <figcaption>当日の規制全体図（配置図）</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i24.b64" alt="当日の規制全体図（配置図）― 規制箇所⑧（12月1日（火））の航空写真地図上に警備員配置・信号機軽トラ・矢印板・通行止看板・施工帯を示した図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>規制計画図【（主）益田澄川線】― パターン①〜⑤</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i16.b64" alt="規制計画図【（主）益田澄川線】― 規制範囲パターン①から⑤、市道入り口への車両通行止の看板とコーンの設置図" width="1000" height="707" loading="lazy">
+            </figure>
+            <figure class="kisei-fig">
+              <figcaption>図-2 片側交互通行規制（夜間）標準図 ― 直線部</figcaption>
+              <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i11.b64" alt="図-2 片側交互通行規制（夜間）の標準図（直線部）― 舗装工・区画線工" width="1000" height="707" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事項 -->
+  <section id="chuui">
+    <div class="alert-card">
+      <h2><span class="no">!</span>注意事項</h2>
+      <p style="margin:0;font-size:1rem;line-height:1.65">駅前のため、夜間は酔った歩行者が近づく場合があります。無理に制止せず、距離をとって声かけしてください。危険を感じたら交番・警察へ連携してください。</p>
+    </div>
+  </section>
+
+  <!-- ④ 要確認事項 -->
+  <section id="kakunin">
+    <div class="alert-card">
+      <h2><span class="no">!</span>要確認事項 ― 後日連絡します</h2>
+      <p style="margin:0 0 6px;font-size:.98rem;line-height:1.65">
+        次の項目は<strong>まだ決まっていません</strong>。決まり次第、別途連絡しますので、それまで各自で判断せず、連絡をお待ちください。
+      </p>
+      <ul class="confirm-list">
+        <li><span>配置場所（ポスト）の詳細 ― マスコス・交番の出入口への配置は決定済み。現場図面は本資料に掲載しましたが、配置位置は図面に書き込まれていないため、詳細は別途連絡します</span><span class="confirm-badge">要確認（後日連絡）</span></li>
+        <li><span>担当者 ・ 連絡先</span><span class="confirm-badge">要確認（後日連絡）</span></li>
+        <li><span>持ち物 ・ 服装などの個別指示</span><span class="confirm-badge">要確認（後日連絡）</span></li>
+        <li><span>隊員の割り振り（誰が・どの日に入るか）</span><span class="confirm-badge">未定 ・ 要確認</span></li>
+        <li><span>12月15日（火）1名 ― 実施するかどうか</span><span class="confirm-badge">要確認</span></li>
+      </ul>
+      <p class="alert-note">工程や人数に変更があった場合は、この資料も更新して改めてお知らせします。出勤前に、最新の連絡を必ず確認してください。</p>
+    </div>
+  </section>
+
+  <footer>
+    <strong>企業警備保障株式会社 益田支店</strong><br>
+    本資料は、元請け 中国道路株式会社の実施工程表（令和8年10月30日作成）と、11月9日の打ち合わせ（久保様）で決まった内容、その後の確定連絡をもとに作成した警備員向け共有資料です。日別人数は11月19日開始に合わせて見直し、11月16日～11月18日を除いた18日間・延べ90名としています（12月15日分は含みません）。
+  </footer>
+
+</main>
+</div>
+
+<button type="button" id="backBtn" class="back-btn" aria-label="元の位置に戻る">↩ 元に戻る</button>
+
+<script>
+  (function(){
+    // 本日のカードを目立たせる（閲覧した日が実施期間中の場合のみ）
+    try{
+      var now = new Date();
+      var pad = function(n){ return (n<10?'0':'')+n; };
+      var today = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
+      var el = document.querySelector('.day[data-date="'+today+'"]');
+      if(el){ el.classList.add('today'); }
+    }catch(e){}
+
+    // 元に戻るボタン：ページ内リンクでジャンプする前の位置へ戻る
+    try{
+      var backBtn = document.getElementById('backBtn');
+      var backStack = [];           // ジャンプ前のスクロール位置
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function scrollBehavior(){ return reduceMotion ? 'auto' : 'smooth'; }
+
+      function updateBackBtn(){
+        if(window.scrollY > 240){ backBtn.classList.add('show'); }
+        else{ backBtn.classList.remove('show'); }
+      }
+
+      // ページ内リンク（#…）を押したとき、ジャンプ前の位置を記録する
+      var anchors = document.querySelectorAll('a[href^="#"]');
+      for(var i=0;i<anchors.length;i++){
+        anchors[i].addEventListener('click', function(){
+          backStack.push(window.scrollY);
+          setTimeout(updateBackBtn, 350);
+        });
+      }
+
+      window.addEventListener('scroll', updateBackBtn, {passive:true});
+      updateBackBtn();
+
+      backBtn.addEventListener('click', function(){
+        var target = backStack.length ? backStack.pop() : 0; // 戻る先が無ければ先頭へ
+        window.scrollTo({top: target, behavior: scrollBehavior()});
+        setTimeout(updateBackBtn, 400);
+      });
+    }catch(e){}
+  })();
+
+  // 本日の規制カード：開いた日付（端末の日付）に応じて表示を切り替える
+  (function(){
+    try{
+      var SCHEDULE = [
+        {d:'2026-11-19', g:4, s:0, th:0, w:'緑と青の区間の、横断歩道がわ'},
+        {d:'2026-11-20', g:6, s:1, th:801},
+        {d:'2026-11-23', g:6, s:2, th:919},
+        {d:'2026-11-24', g:6, s:3, th:931},
+        {d:'2026-11-25', g:6, s:4, th:811},
+        {d:'2026-11-26', g:6, s:5, th:867},
+        {d:'2026-11-27', g:6, s:6, th:900},
+        {d:'2026-11-30', g:6, s:7, th:844},
+        {d:'2026-12-01', g:6, s:8, th:886},
+        {d:'2026-12-02', g:1, s:0, th:0},
+        {d:'2026-12-03', g:5, s:0, th:0},
+        {d:'2026-12-04', g:5, s:0, th:0},
+        {d:'2026-12-07', g:5, s:0, th:0},
+        {d:'2026-12-08', g:5, s:0, th:0},
+        {d:'2026-12-09', g:5, s:0, th:0},
+        {d:'2026-12-10', g:5, s:0, th:0},
+        {d:'2026-12-11', g:5, s:0, th:0},
+        {d:'2026-12-14', g:2, s:0, th:0}
+      ];
+      var CIRCLED = ['①','②','③','④','⑤','⑥','⑦','⑧'];
+      var DOW = ['日','月','火','水','木','金','土'];
+      var pad = function(n){ return (n<10?'0':'')+n; };
+      function keyOf(dt){ return dt.getFullYear()+'-'+pad(dt.getMonth()+1)+'-'+pad(dt.getDate()); }
+      function findEntry(key){ for(var i=0;i<SCHEDULE.length;i++){ if(SCHEDULE[i].d===key) return SCHEDULE[i]; } return null; }
+      function nextEntry(key){ for(var i=0;i<SCHEDULE.length;i++){ if(SCHEDULE[i].d>key) return SCHEDULE[i]; } return null; }
+      function fmtDate(key){
+        var p = key.split('-');
+        var dt = new Date(+p[0], +p[1]-1, +p[2]);
+        return (+p[1])+'月'+(+p[2])+'日（'+DOW[dt.getDay()]+'）';
+      }
+      function secText(e){ return e.s>0 ? ('規制箇所'+CIRCLED[e.s-1]) : '番号箇所なし'; }
+
+      function detailHTML(e){
+        var h = '<div class="today-main">';
+        if(e.s>0){
+          h += '<div class="today-sec"><span class="big-num">'+CIRCLED[e.s-1]+'</span><span class="sec-label">規制箇所</span></div>';
+        }else{
+          h += '<div class="today-sec"><span class="today-sec-none">番号箇所<br>なし</span></div>';
+        }
+        h += '<div class="today-info">'
+          + '<div class="today-row"><span class="k">規制方法</span><span class="v">リモコン信号機による本線の片側交互通行</span></div>'
+          + '<div class="today-row"><span class="k">側道</span><span class="v">工区側の側道・市道の入り口は通行止め（コーン2個・コーンバー1本・看板のみ）</span></div>'
+          + '<div class="today-row"><span class="k">警備人数</span><span class="v">'+e.g+'名</span></div>'
+          + (e.w ? '<div class="today-row"><span class="k">工事区間</span><span class="v">'+e.w+'</span></div>' : '')
+          + '<div class="today-row"><span class="k">集合</span><span class="v">19：30（予定） 中国道路詰所</span></div>'
+          + '<div class="today-row"><span class="k">勤務・規制</span><span class="v">21：00～翌06：00</span></div>'
+          + '</div></div>';
+        if(e.s>0){
+          h += '<div class="today-thumb">'
+            + '<img class="zumen-img" src="assets/sec'+e.s+'.jpg" alt="'+secText(e)+'の個別図面" width="900" height="'+e.th+'" loading="lazy">'
+            + '<p class="today-note">'+secText(e)+'の図面です。細部はページ全体をピンチで拡大してご覧ください。全体図と、この箇所の規制図面・規制方法は下の「現場図面」の'+secText(e)+'をご覧ください。</p>'
+            + '</div>';
+        }
+        return h;
+      }
+
+      var now = new Date();
+      var hour = now.getHours();
+      var todayKey = keyOf(now);
+      var yKey = keyOf(new Date(now.getFullYear(), now.getMonth(), now.getDate()-1));
+
+      document.getElementById('todayDate').textContent =
+        (now.getMonth()+1)+'月'+now.getDate()+'日（'+DOW[now.getDay()]+'）';
+      var stateEl = document.getElementById('todayState');
+      var bodyEl = document.getElementById('todayBody');
+
+      var ongoing = (hour < 6) ? findEntry(yKey) : null;  // 0:00～06:00は前日開始の夜勤が継続中
+      var tonight = findEntry(todayKey);
+
+      if(ongoing){
+        stateEl.textContent = '勤務中 ― '+fmtDate(ongoing.d)+'開始の夜勤が継続中です（翌06：00まで）';
+        var h = detailHTML(ongoing);
+        if(tonight){
+          h += '<p class="today-note">今夜（'+fmtDate(tonight.d)+'）も作業があります：'+secText(tonight)+'・警備'+tonight.g+'名です。</p>';
+        }
+        bodyEl.innerHTML = h;
+      }else if(tonight){
+        stateEl.textContent = '本日は作業日です ― 今夜の規制内容';
+        bodyEl.innerHTML = detailHTML(tonight);
+      }else{
+        stateEl.textContent = '';
+        var nx = nextEntry(todayKey);
+        var h2 = '<p class="today-none-big">本日は作業なし</p>';
+        if(nx){
+          h2 += '<div class="today-next"><span class="k">次の作業日</span><strong>'+fmtDate(nx.d)+'</strong> ― '+secText(nx)+'・警備'+nx.g+'名<span class="sub">集合 19：30（予定） 中国道路詰所　／　勤務・規制 21：00～翌06：00</span></div>';
+        }else{
+          h2 += '<p class="today-note">実施期間（11月19日～12月14日）は終了しました。</p>';
+        }
+        bodyEl.innerHTML = h2;
+      }
+    }catch(e){}
+  })();
+
+</script>
+<script>
+document.querySelectorAll('img[data-b64]').forEach(function(img){
+  fetch(img.getAttribute('data-b64')).then(function(r){return r.text();}).then(function(t){
+    img.src='data:image/jpeg;base64,'+t.replace(/\s+/g,'');
+  }).catch(function(){});
+});
+</script>
+</body>
+</html>
