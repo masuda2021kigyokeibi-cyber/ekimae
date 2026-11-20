@@ -505,18 +505,14 @@
     min-width:0;
   }
   @media (max-width:520px){
+    #tenki .card{padding-left:10px;padding-right:10px}
     .wx-strip{gap:6px}
     .wx-cell{padding:8px 1px}
-    .wx-date{font-size:.74rem;letter-spacing:-.02em}
-    .wx-mark{font-size:1rem}
-    .wx-cond{font-size:.7rem}
-    .wx-temp{font-size:.84rem}
-    .wx-rain{font-size:.86rem}
   }
-  .wx-date{font-weight:800;white-space:nowrap;font-size:.95rem;line-height:1.3}
-  .wx-mark{font-size:2.1rem;line-height:1.25;letter-spacing:.02em;white-space:nowrap}
+  .wx-date{font-weight:800;font-size:.95rem;line-height:1.3}
+  .wx-mark{font-size:clamp(1.2rem,6.5vw,2.1rem);line-height:1.25;white-space:nowrap}
   .wx-cond{font-weight:700;font-size:.8rem;color:var(--muted);line-height:1.35}
-  .wx-temp{font-weight:800;font-size:.95rem;line-height:1.4;white-space:nowrap}
+  .wx-temp{font-weight:800;font-size:clamp(.85rem,4.6vw,.95rem);line-height:1.4;white-space:nowrap}
   .wx-temp .hi{color:#c0392b}
   .wx-temp .lo{color:#2563eb}
   @media (prefers-color-scheme: dark){
@@ -525,8 +521,8 @@
   }
   .wx-rain{font-weight:800;color:var(--num);font-size:.95rem;line-height:1.35;display:flex;flex-direction:column;align-items:center}
   .wx-rain .wx-rain-label{font-size:.72rem;font-weight:700;color:var(--muted);white-space:nowrap}
-  .wx-extra{font-size:.72rem;font-weight:700;color:var(--muted);line-height:1.35;white-space:nowrap}
-  @media (max-width:520px){ .wx-extra{font-size:.64rem;letter-spacing:-.03em} }
+  .wx-extra{font-size:.72rem;font-weight:700;color:var(--muted);line-height:1.35;text-align:center}
+  @media (max-width:520px){ .wx-extra{font-size:.7rem} }
   .wx-note{margin:12px 2px 0;font-size:.92rem;color:var(--muted);line-height:1.6}
   .wx-link{
     display:inline-flex;align-items:center;gap:6px;
@@ -625,16 +621,16 @@
     <p class="section-lead">作業日の天気予報です。夜間作業の準備（雨具・防寒）の目安にしてください。</p>
     <div class="card">
       <div class="wx-strip" role="list" aria-label="作業日の天気一覧">
-        <div class="wx-cell" role="listitem"><span class="wx-date">23日（月）</span><span class="wx-mark" aria-hidden="true">☁️☀️</span><span class="wx-cond">曇時々晴</span><span class="wx-temp"><span class="hi">15</span> / <span class="lo">3℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">24日（火）</span><span class="wx-mark" aria-hidden="true">🌧️→☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">11</span> / <span class="lo">11℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>90%</span><span class="wx-extra">降水量 12mm</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">25日（水）</span><span class="wx-mark" aria-hidden="true">☁️→☀️</span><span class="wx-cond">曇のち晴</span><span class="wx-temp"><span class="hi">11</span> / <span class="lo">6℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">26日（木）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">3℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>10%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">27日（金）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">20</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>10%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">30日（月）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">18</span> / <span class="lo">5℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>20%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">1日（火）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">18</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">2日（水）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">19</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月・信頼度E</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">3日（木）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">18</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月・信頼度E</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">4日（金）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>20%</span><span class="wx-extra">12月・信頼度C</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">23日<wbr>（月）</span><span class="wx-mark" aria-hidden="true">☁️☀️</span><span class="wx-cond">曇時々晴</span><span class="wx-temp"><span class="hi">15</span> / <span class="lo">3℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">24日<wbr>（火）</span><span class="wx-mark" aria-hidden="true">🌧️/☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">11</span> / <span class="lo">11℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>90%</span><span class="wx-extra">降水量 12mm</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">25日<wbr>（水）</span><span class="wx-mark" aria-hidden="true">☁️/☀️</span><span class="wx-cond">曇のち晴</span><span class="wx-temp"><span class="hi">11</span> / <span class="lo">6℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">26日<wbr>（木）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">3℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>10%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">27日<wbr>（金）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">20</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>10%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">30日<wbr>（月）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">18</span> / <span class="lo">5℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>20%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">1日<wbr>（火）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">18</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">2日<wbr>（水）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">19</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月・信頼度E</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">3日<wbr>（木）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">18</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月・信頼度E</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">4日<wbr>（金）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>20%</span><span class="wx-extra">12月・信頼度C</span></div>
       </div>
       <p class="wx-note">tenki.jp 11月21日7時発表。予報は変わることがあります。予報期間外の日（12月7日・12月8日・12月9日・12月10日・12月14日）は予報が出たら追記します。</p>
       <a class="wx-link" href="https://tenki.jp/lite/forecast/7/35/6820/32204/10days.html" target="_blank" rel="noopener">tenki.jp 益田市の天気予報を見る</a>
