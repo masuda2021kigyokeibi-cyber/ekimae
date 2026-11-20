@@ -412,7 +412,9 @@
   .today-next strong{font-size:1.2rem}
   .today-next .sub{display:block;font-size:.9rem;color:#cfdeee;margin-top:2px}
   /* 本日カード内に複製表示する、その日の箇所ブロック全体 */
-  .today-body .sec-block{margin-top:16px}
+  /* 紺色カードの白文字を継承すると、ライトモードで白・淡色の箱に白文字になって
+     読めなくなるため、複製ブロック内は通常表示と同じ文字色に戻す */
+  .today-body .sec-block{margin-top:16px;color:var(--text)}
   @media (max-width:520px){
     .today-sec{min-width:88px}
     .today-sec .big-num{font-size:3.6rem}
