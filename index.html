@@ -411,6 +411,8 @@
   .today-next .k{display:block;font-size:.88rem;font-weight:700;color:#cfdeee}
   .today-next strong{font-size:1.2rem}
   .today-next .sub{display:block;font-size:.9rem;color:#cfdeee;margin-top:2px}
+  /* 本日カード内に複製表示する、その日の箇所ブロック全体 */
+  .today-body .sec-block{margin-top:16px}
   @media (max-width:520px){
     .today-sec{min-width:88px}
     .today-sec .big-num{font-size:3.6rem}
@@ -1275,6 +1277,19 @@
       }
       function secText(e){ return e.s>0 ? ('規制箇所'+CIRCLED[e.s-1]) : '番号箇所なし'; }
 
+      // 「現場図面」にある、その日の箇所ブロック（個別図面・合材量・その夜の天気・規制方法・規制図面一式）を
+      // 丸ごと複製して返す。本日カードに今日の分を全部表示するためのもの（元のブロックは下にも残る）
+      function fullBlockClone(headMark){
+        var blocks = document.querySelectorAll('.sec-block');
+        for(var i=0;i<blocks.length;i++){
+          var h3 = blocks[i].querySelector('h3');
+          if(h3 && h3.textContent.indexOf(headMark)===0){
+            return blocks[i].cloneNode(true);
+          }
+        }
+        return null;
+      }
+
       function detailHTML(e){
         var h = '<div class="today-main">';
         if(e.s>0){
@@ -1291,12 +1306,6 @@
           + '<div class="today-row"><span class="k">集合</span><span class="v">19：30（予定） 中国道路詰所</span></div>'
           + '<div class="today-row"><span class="k">勤務・規制</span><span class="v">21：00～翌06：00</span></div>'
           + '</div></div>';
-        if(e.s>0){
-          h += '<div class="today-thumb">'
-            + '<img class="zumen-img" data-b64="assets/sec'+e.s+'.b64" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="'+secText(e)+'の個別図面" width="900" height="'+e.th+'" loading="lazy">'
-            + '<p class="today-note">'+secText(e)+'の図面です。細部はページ全体をピンチで拡大してご覧ください。全体図と、この箇所の規制図面・規制方法は下の「現場図面」の'+secText(e)+'をご覧ください。</p>'
-            + '</div>';
-        }
         return h;
       }
 
@@ -1320,9 +1329,17 @@
           h += '<p class="today-note">今夜（'+fmtDate(tonight.d)+'）も作業があります：'+secText(tonight)+'・警備'+tonight.g+'名です。</p>';
         }
         bodyEl.innerHTML = h;
+        if(ongoing.s>0){
+          var oc = fullBlockClone('規制箇所'+CIRCLED[ongoing.s-1]);
+          if(oc) bodyEl.appendChild(oc);
+        }
       }else if(tonight){
         stateEl.textContent = '本日は作業日です ― 今夜の規制内容';
         bodyEl.innerHTML = detailHTML(tonight);
+        if(tonight.s>0){
+          var tc = fullBlockClone('規制箇所'+CIRCLED[tonight.s-1]);
+          if(tc) bodyEl.appendChild(tc);
+        }
       }else{
         var nx = nextEntry(todayKey);
         var h2;
@@ -1340,6 +1357,10 @@
           h2 += '<p class="today-note">実施期間（11月20日～12月14日）は終了しました。</p>';
         }
         bodyEl.innerHTML = h2;
+        if(todayKey === '2026-11-19'){
+          var cc = fullBlockClone('11月19日');
+          if(cc) bodyEl.appendChild(cc);
+        }
       }
     }catch(e){}
   })();
