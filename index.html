@@ -525,6 +525,8 @@
   }
   .wx-rain{font-weight:800;color:var(--num);font-size:.95rem;line-height:1.35;display:flex;flex-direction:column;align-items:center}
   .wx-rain .wx-rain-label{font-size:.72rem;font-weight:700;color:var(--muted);white-space:nowrap}
+  .wx-extra{font-size:.72rem;font-weight:700;color:var(--muted);line-height:1.35;white-space:nowrap}
+  @media (max-width:520px){ .wx-extra{font-size:.64rem;letter-spacing:-.03em} }
   .wx-note{margin:12px 2px 0;font-size:.92rem;color:var(--muted);line-height:1.6}
   .wx-link{
     display:inline-flex;align-items:center;gap:6px;
@@ -623,15 +625,18 @@
     <p class="section-lead">作業日の天気予報です。夜間作業の準備（雨具・防寒）の目安にしてください。</p>
     <div class="card">
       <div class="wx-strip" role="list" aria-label="作業日の天気一覧">
-        <div class="wx-cell" role="listitem"><span class="wx-date">20日（金）</span><span class="wx-mark" aria-hidden="true">🌧️→☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">10</span> / <span class="lo">6℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>70%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">23日（月）</span><span class="wx-mark" aria-hidden="true">☀️→🌧️</span><span class="wx-cond">晴のち雨</span><span class="wx-temp"><span class="hi">16</span> / <span class="lo">1℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>70%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">24日（火）</span><span class="wx-mark" aria-hidden="true">🌧️→☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">16</span> / <span class="lo">9℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>80%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">25日（水）</span><span class="wx-mark" aria-hidden="true">☁️→☀️</span><span class="wx-cond">曇のち晴</span><span class="wx-temp"><span class="hi">14</span> / <span class="lo">9℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">26日（木）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">16</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">27日（金）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span></div>
-        <div class="wx-cell" role="listitem"><span class="wx-date">30日（月）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">6℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">20日（金）</span><span class="wx-mark" aria-hidden="true">🌧️→☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">10</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>60%</span><span class="wx-extra">降水量 5mm</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">23日（月）</span><span class="wx-mark" aria-hidden="true">☁️☀️</span><span class="wx-cond">曇時々晴</span><span class="wx-temp"><span class="hi">15</span> / <span class="lo">2℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">24日（火）</span><span class="wx-mark" aria-hidden="true">🌧️→☁️</span><span class="wx-cond">雨のち曇</span><span class="wx-temp"><span class="hi">11</span> / <span class="lo">9℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>90%</span><span class="wx-extra">降水量 11mm</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">25日（水）</span><span class="wx-mark" aria-hidden="true">☁️→☀️</span><span class="wx-cond">曇のち晴</span><span class="wx-temp"><span class="hi">12</span> / <span class="lo">5℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>30%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">26日（木）</span><span class="wx-mark" aria-hidden="true">☀️☁️</span><span class="wx-cond">晴時々曇</span><span class="wx-temp"><span class="hi">16</span> / <span class="lo">5℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>20%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">27日（金）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">20</span> / <span class="lo">7℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>20%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">30日（月）</span><span class="wx-mark" aria-hidden="true">☀️</span><span class="wx-cond">晴</span><span class="wx-temp"><span class="hi">17</span> / <span class="lo">5℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>20%</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">1日（火）</span><span class="wx-mark" aria-hidden="true">☀️→☁️</span><span class="wx-cond">晴のち曇</span><span class="wx-temp"><span class="hi">19</span> / <span class="lo">6℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月・信頼度E</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">2日（水）</span><span class="wx-mark" aria-hidden="true">☁️🌧️</span><span class="wx-cond">曇一時雨</span><span class="wx-temp"><span class="hi">19</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>60%</span><span class="wx-extra">12月・信頼度E</span></div>
+        <div class="wx-cell" role="listitem"><span class="wx-date">3日（木）</span><span class="wx-mark" aria-hidden="true">☁️</span><span class="wx-cond">曇</span><span class="wx-temp"><span class="hi">18</span> / <span class="lo">8℃</span></span><span class="wx-rain"><span class="wx-rain-label">降水確率</span>40%</span><span class="wx-extra">12月・信頼度E</span></div>
       </div>
-      <p class="wx-note">11月17日8時発表（tenki.jp）。予報は変わることがあります。12月分は予報が出たら追記します。</p>
+      <p class="wx-note">11月20日19時発表（tenki.jp）。予報は変わることがあります。12月4日以降は予報が出たら追記します。</p>
       <a class="wx-link" href="https://tenki.jp/lite/forecast/7/35/6820/32204/10days.html" target="_blank" rel="noopener">tenki.jp 益田市の天気予報を見る</a>
     </div>
   </section>
@@ -897,7 +902,7 @@
             <h3>11月27日（金）― 舗装打ち換え工（11月19日分）・警備 6名</h3>
           </figure>
           <p class="tonnage">アスファルト合材：再生粗粒度アスコン 8.6t <span class="truck">（10tトラック約1台分）</span></p>
-          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ（降水確率20%）</p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ（降水確率10%）</p>
           <div class="kisei-method" aria-label="11月27日（金）の作業について">
             <div class="km-row"><span class="km-label">工事内容</span><span class="km-text"><strong>舗装打ち換え工</strong> ― 中止になった<strong>11月19日（木）分</strong>の作業を、この日に実施します<span class="sub">箇所⑥の切削オーバーレイは12月1日（火）の実施です。この日は行いません。</span></span></div>
             <div class="km-row"><span class="km-label">工事区間</span><span class="km-text"><strong>緑と青の区間の、横断歩道がわ</strong>を施工します</span></div>
@@ -918,7 +923,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i04.b64" alt="規制箇所①の個別図面（11月20日（金）の凡例と該当区間の路面図）" width="900" height="801" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：10.7t ＋ 5.9t ＝ 合計16.6t <span class="truck">（10tトラック約2台分）</span></p>
-          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇り（降水確率40%）。明け方まで雨はなさそうです</p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は雨（降水確率60%）</p>
           <div class="kisei-method" aria-label="規制箇所①の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
@@ -950,7 +955,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i09.b64" alt="規制箇所②の個別図面（11月23日（月）の凡例と該当区間の路面図）" width="900" height="919" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：65.6t <span class="truck">（10tトラック約7台分）</span></p>
-          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜遅く雨（降水確率70%）。最低気温1℃と冷え込みます。防寒をしっかり</p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇り（降水確率30%）。明け方にかけて雨が近づきます。最低気温2℃で防寒を</p>
           <div class="kisei-method" aria-label="規制箇所②の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
@@ -982,7 +987,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i12.b64" alt="規制箇所③の個別図面（11月24日（火）の凡例と該当区間の路面図）" width="900" height="931" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：65.6t <span class="truck">（10tトラック約7台分）</span></p>
-          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇りのち晴れ（降水確率20〜30%）</p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇り（降水確率30%）。雨は夜までに上がる見込み</p>
           <div class="kisei-method" aria-label="規制箇所③の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
@@ -1014,7 +1019,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i14.b64" alt="規制箇所④の個別図面（11月25日（水）の凡例と該当区間の路面図）" width="900" height="811" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：23.1t <span class="truck">（10tトラック約3台分）</span></p>
-          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ時々曇り（降水確率10〜40%）</p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ（降水確率10〜20%）</p>
           <div class="kisei-method" aria-label="規制箇所④の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
@@ -1042,7 +1047,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i17.b64" alt="規制箇所⑤の個別図面（11月30日（月）の凡例と該当区間の路面図）" width="900" height="867" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：47.6t <span class="truck">（10tトラック約5台分）</span></p>
-          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>予報の信頼度が低めです。直前に確認してください</p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ（降水確率20%）</p>
           <div class="kisei-method" aria-label="規制箇所⑤の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
@@ -1070,6 +1075,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i19.b64" alt="規制箇所⑥の個別図面（12月1日（火）の凡例と該当区間の路面図）" width="900" height="900" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：68.7t <span class="truck">（10tトラック約7台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>晴れのち曇り（降水確率40%・信頼度低め、直前に再確認を）</p>
           <div class="kisei-method" aria-label="規制箇所⑥の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
@@ -1097,7 +1103,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i21.b64" alt="規制箇所⑦の個別図面（11月26日（木）の凡例と該当区間の路面図）" width="900" height="844" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：64.0t <span class="truck">（10tトラック約7台分）</span></p>
-          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は曇りのち晴れ（降水確率40%）</p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>夜は晴れ時々曇り（降水確率20%）</p>
           <div class="kisei-method" aria-label="規制箇所⑦の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
@@ -1125,6 +1131,7 @@
             <img class="zumen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="assets/i23.b64" alt="規制箇所⑧の個別図面（12月2日（水）の凡例と該当区間の路面図）" width="900" height="886" loading="lazy">
           </figure>
           <p class="tonnage">アスファルト合材：74.0t <span class="truck">（10tトラック約8台分）</span></p>
+          <p class="night-weather"><span class="nw-label">🌙 その夜の天気（21：00～翌6：00）</span>曇り、一時雨（降水確率60%・信頼度低め、直前に再確認を）</p>
           <div class="kisei-method" aria-label="規制箇所⑧の規制方法">
             <div class="km-row"><span class="km-label">本線</span><span class="km-text">片側交互通行規制 ― 信号機は<strong>リモコン操作</strong>で行います<span class="sub">滅灯（減灯）とは、交差点の常設信号機を滅灯にして、警備員が交差点で誘導を行うことです。</span></span></div>
             <div class="km-row"><span class="km-label">側道</span><span class="km-text">側道・市道の入り口は<strong>通行止め</strong> ― <strong>コーン2個とコーンバー1本と看板のみ</strong>で閉鎖します</span></div>
